@@ -1,24 +1,22 @@
 # 01. Quantum Computing Foundations: Mathematics, Physics, and Programming
 
-A unified exploration of quantum computing from three interconnected perspectives:
-- **Mathematics**: The formal state vectors, complex amplitudes, operators, and matrices.
-- **Physics**: How the concepts manifest in physical physical systems (superconducting circuits, trapped ions, photons, neutral atoms, and NV centers).
-- **Programming**: How to implement, simulate, and verify these phenomena in code using Python, Qiskit, and PennyLane.
+A unified, comprehensive exploration of quantum computing connecting formal mathematics, physical quantum hardware, and executable code implementations.
 
 ---
 
 ## 🏛️ The Three Perspectives Framework
 
-| Column | What It Means | Concrete Example |
+Every core quantum concept is analyzed through three interconnected lenses:
+
+| Perspective | What It Represents | Concrete Example |
 | :--- | :--- | :--- |
-| **Concept** | The fundamental quantum phenomenon or architecture | Superposition |
-| **Mathematics** | The formal linear algebra, state vectors, and operators | $|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$, $|\alpha|^2 + |\beta|^2 = 1$ |
-| **Physics** | Real-world physical realization in quantum hardware | Ground and excited states in superconducting Josephson junctions or neutral atoms |
-| **Programming** | Construction and execution in code | `qc.h(0)` in Qiskit, `qml.Hadamard(wires=0)` in PennyLane |
+| **Mathematics** | The formal linear algebra, state vectors, complex amplitudes, and operators. | $|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$, $|\alpha|^2 + |\beta|^2 = 1$ |
+| **Physics** | How the phenomenon manifests in real-world physical systems. | Ground and excited states in superconducting Josephson junctions or neutral atoms. |
+| **Programming** | How to construct, simulate, and verify the concept in code. | `qc.h(0)` in Qiskit, `qml.Hadamard(wires=0)` in PennyLane. |
 
 ---
 
-# PART 1: Fundamental Quantum Concepts
+# PART 1: The 12 Fundamental Concepts
 
 ## 1. Superposition
 
@@ -38,7 +36,7 @@ Under the Born Rule, measurement in the computational basis $\{|0\rangle, |1\ran
 For an equal superposition:
 $$|\psi\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle \implies P(0) = 50\%, \; P(1) = 50\%$$
 
-> **Crucial Distinction**: Superposition does not mean the qubit is simply in an unknown classical state. The complex amplitudes can constructively and destructively interfere, producing effects impossible in classical probability distributions.
+> **Important**: Superposition does not mean the qubit is simply in an unknown classical state. The complex amplitudes can constructively and destructively interfere, producing effects impossible in classical probability distributions.
 
 ### B. Physics
 Physical realizations of two-level quantum superpositions include:
@@ -236,27 +234,14 @@ print(rho)
 
 ---
 
-# PART 2: Physical Quantum Computing Technologies
-
-```
-┌───────────────────────────────────────────────────────────────────────────────────┐
-│                     PHYSICAL QUANTUM HARDWARE ARCHITECTURES                       │
-├──────────────────────┬──────────────────────┬──────────────────────┬──────────────┤
-│ Superconducting      │ Trapped Ions         │ Photonic             │ Neutral Atom │
-│ (IBM, Google, Rigetti)│ (Quantinuum, IonQ)   │ (Xanadu, PsiQuantum) │ (QuEra)      │
-├──────────────────────┼──────────────────────┼──────────────────────┼──────────────┤
-│ Microwave pulses     │ Focused lasers       │ Optical waveguides,  │ Optical      │
-│ Josephson junctions  │ RF Paul traps        │ beam splitters       │ tweezers     │
-│ Dilution fridge (mK) │ Ultra-high vacuum    │ Room temp detection  │ Rydberg array│
-└──────────────────────┴──────────────────────┴──────────────────────┴──────────────┘
-```
-
 ## 8. Superconducting Qubits
 - **Mathematics**: Non-linear LC circuit Hamiltonians, Josephson potential $U(\phi) = -E_J \cos(\phi)$, Schrödinger evolution $i\hbar \frac{d}{dt}|\psi\rangle = H|\psi\rangle$.
 - **Physics**: Macroscopic superconducting circuits operating in dilution refrigerators at $\sim 15\,\text{mK}$. Non-linear inductance from Josephson junctions creates anharmonic energy levels ($|0\rangle \to |1\rangle$ transition differs from $|1\rangle \to |2\rangle$).
 - **Programming**: Qiskit, Qiskit Pulse, OpenQASM.
 - **Key Organizations**: IBM Quantum, Google Quantum AI, Rigetti Computing.
 - **Main Challenges**: Decoherence times ($T_1, T_2 \sim 50 - 300\,\mu\text{s}$), crosstalk, cryogenic wiring scaling.
+
+---
 
 ## 9. Trapped-Ion Quantum Computing
 - **Mathematics**: Atomic Hamiltonians, Jaynes-Cummings model, Mølmer-Sørensen entangling gates via collective vibrational motional modes (phonons).
@@ -265,12 +250,16 @@ print(rho)
 - **Key Organizations**: Quantinuum, IonQ.
 - **Main Challenges**: Slower gate speeds (microsecond/millisecond scale), complex optical routing, ion transport shuttle latency.
 
+---
+
 ## 10. Photonic Quantum Computing
 - **Mathematics**: Bosonic Fock states, continuous-variable optical modes, beam-splitter unitaries, Gaussian transformations, measurement-based quantum computing (MBQC).
 - **Physics**: Single photons travelling through on-chip silica waveguides, silicon-nitride beam splitters, phase modulators, and superconducting nanowire single-photon detectors (SNSPDs).
 - **Programming**: Strawberry Fields, PennyLane.
 - **Key Organizations**: Xanadu, PsiQuantum.
 - **Main Challenges**: Probabilistic photon generation, photon absorption loss, detector efficiency.
+
+---
 
 ## 11. Neutral-Atom Quantum Computing
 - **Mathematics**: Many-body Rydberg Hamiltonian, van der Waals interactions $V_{ij} = C_6/R^6$, Rydberg blockade.
@@ -280,8 +269,6 @@ print(rho)
 - **Main Challenges**: Atom loss, laser phase noise, continuous reloading.
 
 ---
-
-# PART 3: Quantum Optimization & Annealing
 
 ## 12. Quantum Annealing
 - **Mathematics**: Quadratic Unconstrained Binary Optimization (QUBO) and Ising models:
@@ -295,7 +282,7 @@ print(rho)
 
 ---
 
-# PART 4: Connecting the Concepts (6-Step Walkthrough)
+# PART 2: Connecting the Concepts (6-Step Walkthrough)
 
 ```python
 from qiskit import QuantumCircuit
@@ -315,7 +302,126 @@ qc.cx(0, 1)
 
 ---
 
-# PART 5: Quantum Noise, Decoherence & NV Centers
+# PART 3: Quantum Logic Gates & Unitaries Reference
+
+All quantum operations on closed quantum systems are linear, reversible transformations represented by **Unitary operators** $U$:
+
+$$U U^\dagger = U^\dagger U = I$$
+
+### Single-Qubit Gates
+
+| Gate Name | Symbol | Matrix Representation | Action on Basis States |
+| :--- | :---: | :---: | :--- |
+| **Pauli-X** (NOT) | $X$ or $\sigma_x$ | $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ | $X\|0\rangle = \|1\rangle, \; X\|1\rangle = \|0\rangle$ |
+| **Pauli-Y** | $Y$ or $\sigma_y$ | $\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}$ | $Y\|0\rangle = i\|1\rangle, \; Y\|1\rangle = -i\|0\rangle$ |
+| **Pauli-Z** (Phase Flip) | $Z$ or $\sigma_z$ | $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ | $Z\|0\rangle = \|0\rangle, \; Z\|1\rangle = -\|1\rangle$ |
+| **Hadamard** | $H$ | $\frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$ | $H\|0\rangle = \|+\rangle, \; H\|1\rangle = \|-\rangle$ |
+| **Phase Gate** | $S$ | $\begin{pmatrix} 1 & 0 \\ 0 & i \end{pmatrix}$ | $S\|0\rangle = \|0\rangle, \; S\|1\rangle = i\|1\rangle$ |
+| **$\pi/8$ Gate** | $T$ | $\begin{pmatrix} 1 & 0 \\ 0 & e^{i\pi/4} \end{pmatrix}$ | $T\|0\rangle = \|0\rangle, \; T\|1\rangle = e^{i\pi/4}\|1\rangle$ |
+
+### Parameterized Rotation Gates
+Continuous rotations around the Cartesian axes of the Bloch Sphere:
+
+$$R_X(\theta) = \exp\left(-i \frac{\theta}{2} X\right) = \begin{pmatrix} \cos(\theta/2) & -i\sin(\theta/2) \\ -i\sin(\theta/2) & \cos(\theta/2) \end{pmatrix}$$
+
+$$R_Y(\theta) = \exp\left(-i \frac{\theta}{2} Y\right) = \begin{pmatrix} \cos(\theta/2) & -\sin(\theta/2) \\ \sin(\theta/2) & \cos(\theta/2) \end{pmatrix}$$
+
+$$R_Z(\theta) = \exp\left(-i \frac{\theta}{2} Z\right) = \begin{pmatrix} e^{-i\theta/2} & 0 \\ 0 & e^{i\theta/2} \end{pmatrix}$$
+
+### Multi-Qubit Entangling Gates
+
+#### Controlled-NOT Gate ($CNOT$ / $CX$)
+Flips target qubit $q_1$ if and only if control qubit $q_0$ is in state $|1\rangle$:
+
+$$CNOT = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{pmatrix}$$
+
+#### Controlled-Z Gate ($CZ$)
+Applies phase flip $-1$ if and only if both qubits are in state $|11\rangle$:
+
+$$CZ = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \end{pmatrix}$$
+
+#### SWAP Gate
+Exchanges the states of two qubits:
+
+$$SWAP = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$$
+
+---
+
+# PART 4: Multi-Qubit Registers, Tensor Products & Bloch Sphere Geometry
+
+### Composite State Space
+For $n$ qubits, the combined state space is formed by the tensor product:
+
+$$\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \dots \otimes \mathcal{H}_n \cong \mathbb{C}^{2^n}$$
+
+A general state of $n$ qubits requires $2^n$ complex amplitudes:
+
+$$|\Psi\rangle = \sum_{j=0}^{2^n - 1} c_j |j\rangle, \quad \sum_{j=0}^{2^n - 1} |c_j|^2 = 1$$
+
+This exponential growth ($\dim(\mathcal{H}) = 2^n$) is the core source of quantum computational capacity:
+- $n = 10 \implies 1,024$ amplitudes
+- $n = 20 \implies 1,048,576$ amplitudes
+- $n = 30 \implies 1,073,741,824$ amplitudes ($8\,\text{GB}$)
+- $n = 50 \implies \approx 1.12 \times 10^{15}$ amplitudes (exceeding petabyte classical RAM limits).
+
+### The Bloch Sphere Coordinates
+Any pure single-qubit state can be written up to global phase as:
+
+$$|\psi\rangle = \cos\left(\frac{\theta}{2}\right) |0\rangle + e^{i\phi} \sin\left(\frac{\theta}{2}\right) |1\rangle$$
+
+```
+                   |+z> = |0> (North Pole)
+                      |
+                      |   / |psi>
+                      |  /  theta
+                      | /
+           -----------+----------- +y
+                     /|
+                    / |
+                  phi |
+                 /    |
+              +x      |-z> = |1> (South Pole)
+```
+
+Cartesian coordinates:
+$$\vec{r} = (x, y, z) = (\sin\theta \cos\phi, \; \sin\theta \sin\phi, \; \cos\theta)$$
+In density matrix form:
+$$\rho = \frac{1}{2} \left( I + \vec{r} \cdot \vec{\sigma} \right) = \frac{1}{2} \begin{pmatrix} 1 + z & x - iy \\ x + iy & 1 - z \end{pmatrix}$$
+
+---
+
+# PART 5: Quantum Complexity Classes & Canonical Algorithms
+
+```
+              ┌───────────────────────────────┐
+              │           PSPACE              │
+              │  ┌─────────────────────────┐  │
+              │  │           NP            │  │
+              │  │   ┌─────────────────┐   │  │
+              │  │   │  BQP (Quantum)  │   │  │
+              │  │   │   ┌─────────┐   │   │  │
+              │  │   │   │ P / BPP │   │   │  │
+              │  │   │   └─────────┘   │   │  │
+              │  │   └─────────────────┘   │  │
+              │  └─────────────────────────┘  │
+              └───────────────────────────────┘
+```
+
+- **P**: Problems solvable by a deterministic classical Turing machine in polynomial time $O(n^k)$.
+- **BPP**: Problems solvable by a probabilistic classical computer with bounded error probability ($\le 1/3$) in polynomial time.
+- **BQP (Bounded-error Quantum Polynomial-Time)**: Problems solvable by a polynomial-size quantum circuit with error probability at most $1/3$.
+- **NP**: Decision problems whose positive solutions can be verified in polynomial time.
+
+### Canonical Quantum Speedups
+1. **Deutsch-Jozsa Algorithm**: Determines if a function $f: \{0, 1\}^n \to \{0, 1\}$ is constant or balanced in **$1$ query** (exponentially faster than classical worst-case $2^{n-1} + 1$).
+2. **Bernstein-Vazirani Algorithm**: Recovers an $n$-bit secret string $s$ from an oracle $f(x) = s \cdot x \pmod 2$ in **$1$ query** (classical requires $n$ queries).
+3. **Simon's Algorithm**: Discovers hidden period $s$ for function $f(x) = f(x \oplus s)$ in $O(n)$ queries (exponential speedup over classical $O(2^{n/2})$).
+4. **Grover's Search Algorithm**: Searches an unstructured database of $N$ items in $O(\sqrt{N})$ queries (quadratic speedup over classical $O(N)$).
+5. **Shor's Factoring Algorithm**: Factors an $n$-bit integer in $O(n^3)$ polynomial time using Quantum Phase Estimation / QFT (exponential speedup over best classical General Number Field Sieve).
+
+---
+
+# PART 6: Quantum Noise, Decoherence & NV Centers
 
 ### Coherence Times ($T_1, T_2, T_\phi$)
 - **Energy Relaxation Time ($T_1$)**: Time required for an excited state $|1\rangle$ to decay to $|0\rangle$ by releasing energy to the environment.
@@ -331,7 +437,7 @@ qc.cx(0, 1)
 
 ---
 
-# PART 6: Complete Study Map & Recommended Learning Progression
+# PART 7: Complete Study Map & Recommended Learning Progression
 
 | Concept | Mathematics to Learn | Physics to Understand | Programming to Practice |
 | :--- | :--- | :--- | :--- |

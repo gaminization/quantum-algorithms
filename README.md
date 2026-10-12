@@ -88,6 +88,11 @@ quantum-algorithms/
 ├── environment.yml                     # Conda/Mamba reproducible environment
 ├── .gitignore                          # Cleaned cache and intermediate tracking rules
 │
+├── 261012_demo.ipynb                   # Original workshop demo notebook (Qiskit & PennyLane)
+├── QRC.ipynb                           # Original Quantum Reservoir Computing notebook (Bloqade)
+├── qnn_medmnist.ipynb                  # Original Quanvolutional NN notebook (BreastMNIST)
+├── qtl_colab.ipynb                     # Original Quantum Transfer Learning notebook (ResNet-18)
+│
 ├── notebooks/                          # Production-ready Jupyter notebooks with rendered outputs
 │   ├── 01_quantum_fundamentals.ipynb   # Qiskit & PennyLane foundations, Bloch sphere, states, density matrices
 │   ├── 02_quantum_reservoir_computing.ipynb # Analog Rydberg atom reservoir computing with Bloqade
