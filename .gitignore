@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+*.pptx
+
+# Intermediate data cache files
+*.npy
+*.npz
+*.zip
+.medmnist/
